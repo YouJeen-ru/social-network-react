@@ -1,5 +1,8 @@
 import React from "react";
- export const SidebarReducer = (state: any, action: any) => {
+
+let initialState: any = {}
+
+ export const SidebarReducer = (state = initialState, action: any) => {
 
     return state
 };
