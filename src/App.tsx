@@ -3,8 +3,9 @@ import './App.css';
 import Header from "./components/Headers/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
-import {BrowserRouter, Route} from 'react-router-dom';
+import {HashRouter as Router, Route} from 'react-router-dom';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from './components/Users/UsersContainer';
 
 
 function App(props: any) {
@@ -13,7 +14,7 @@ function App(props: any) {
 
 
     return (
-        <BrowserRouter>
+        <Router>
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
@@ -23,11 +24,15 @@ function App(props: any) {
                            store={props.store}
                         /> }/>
                     <Route path={'/profile'} render={ () =>
-                        <Profile store={props.store}/> }/>
+                        <Profile store={props.store}/> }
+                    />
+                    <Route path={'/users'} render={ () =>
+                        <UsersContainer/> }
+                    />
 
                 </div>
             </div>
-        </BrowserRouter>
+        </Router>
 
     );
 }
