@@ -1,3 +1,5 @@
+import {usersAPI} from "../api/Api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
@@ -21,9 +23,9 @@ const UsersReducer = (state = initialState, action: any) => {
 
     switch (action.type) {
         case FOLLOW:
-            return  {
+            return {
                 ...state,
-                users: state.users.map( (u: any) => {
+                users: state.users.map((u: any) => {
                     if (u.id === action.userId) {
                         return {...u, followed: true}
 
@@ -33,9 +35,9 @@ const UsersReducer = (state = initialState, action: any) => {
             }
 
         case UNFOLLOW:
-            return  {
+            return {
                 ...state,
-                users: state.users.map( (u: any) => {
+                users: state.users.map((u: any) => {
                     if (u.id === action.userId) {
                         return {...u, followed: false}
 
@@ -111,6 +113,19 @@ export const toggleIsFollowingProgress = (isFetching: any, userId: any) => {
         type: TOGGLE_IS_FOLLOWING_PROGRESS,
         isFetching,
         userId,
+    }
+}
+
+export const getUsersThunkCreator = (currentPage: any, Pagesize: any) => {
+    return (dispatch: any) => {
+        dispatch(toggleIsFetching(true))
+
+        usersAPI.getUsers(currentPage, Pagesize).then(data => {
+
+            dispatch(toggleIsFetching(false))
+            dispatch(setUsers(data.items))
+            dispatch(setTotalUsersCount(data.totalCount))
+        })
     }
 }
 
