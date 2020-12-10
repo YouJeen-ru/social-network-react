@@ -24,6 +24,7 @@ function App(props: any) {
                 <Navbar/>
                 <div className='app-wrapper-content'>
                     <Route  path={'/dialogs'} render={ () =>
+                        // @ts-ignore
                         <DialogsContainer
                            store={props.store}
                         /> }/>
@@ -32,6 +33,7 @@ function App(props: any) {
                         <ProfileContainer store={props.store}/> }
                     />
                     <Route path={'/users'} render={ () =>
+                        // @ts-ignore
                         <UsersContainer/> }
                     />
                     <Route path={'/login'} render={() =>
