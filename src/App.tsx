@@ -15,6 +15,8 @@ function App(props: any) {
 
 
 
+
+
     return (
         <Router>
             <div className='app-wrapper'>
@@ -26,6 +28,7 @@ function App(props: any) {
                            store={props.store}
                         /> }/>
                     <Route path={'/profile/:userId?'} render={ () =>
+                        // @ts-ignore
                         <ProfileContainer store={props.store}/> }
                     />
                     <Route path={'/users'} render={ () =>
