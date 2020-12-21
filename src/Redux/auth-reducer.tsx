@@ -42,8 +42,7 @@ export const setAuthUserData = (userId: any, email: any, login: any, isAuth: any
 }
 
 //Thunk
-export const getAuthUserData = () => {
-    return (dispatch: any) => {
+export const getAuthUserData = () => (dispatch: any) => {
         return authAPI.me()
             .then(response => {
                 if (response.data.resultCode === 0) {
@@ -53,7 +52,7 @@ export const getAuthUserData = () => {
             })
     }
 
-}
+
 export const login = (email: any, password: any, rememberMe: any) => {
     return (dispatch: any) => {
         authAPI.login(email, password, rememberMe)

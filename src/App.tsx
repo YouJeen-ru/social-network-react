@@ -60,12 +60,13 @@ class App extends React.Component<any> {
     }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: any) => ({
 
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     initialized: state.app.initialized
-}
+})
 
 export default compose (
     withRouter,
-    connect(mapStateToProps, {initializeApp}))(App)
+
+    connect(mapStateToProps, {initializeApp})) (App)

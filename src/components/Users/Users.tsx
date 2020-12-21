@@ -2,8 +2,7 @@ import React from 'react';
 import styles from "./Users.module.css";
 import userPhoto from "../../assets/images/unnamed.png";
 import {NavLink} from 'react-router-dom';
-import axios from "axios";
-import {usersAPI} from "../../api/Api";
+
 
 const Users = (props: any) => {
 
@@ -12,7 +11,6 @@ const Users = (props: any) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
-
 
     return <div>
         <div className={styles.numberPag}>

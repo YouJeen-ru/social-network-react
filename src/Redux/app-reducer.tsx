@@ -38,8 +38,8 @@ export const initializedSuccess = () => {
 }
 
 //Thunk
-export const initializeApp = () => {
-    return (dispatch: any) => {
+export const initializeApp = () => (dispatch: any) => {
+
         let promise = dispatch(getAuthUserData())
         Promise.all([promise])
             .then(() => {
@@ -49,7 +49,7 @@ export const initializeApp = () => {
 
     }
 
-}
+
 
 
 export default appReducer;
