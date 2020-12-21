@@ -1,6 +1,20 @@
-export const getUsers = (state: any) => {
+import {createSelector} from "reselect";
+
+
+// testing lab reselect
+export const getUsersSelector = (state: any) => {
     return state.userPage.users
 }
+
+export const getUsers = createSelector(getUsersSelector,
+    (users: any) => {
+    return users
+    })
+
+
+
+
+
 export const getPageSize = (state: any) => {
     return state.userPage.pageSize
 }
