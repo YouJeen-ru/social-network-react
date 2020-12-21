@@ -8,10 +8,12 @@ import {HashRouter as Router} from "react-router-dom";
 
 
 
-    ReactDOM.render(
+
+ReactDOM.render(
         <Router>
             <Provider store={store}>
-            <App />
+                // @ts-ignore
+            <App/>
             </Provider>
         </Router>,
         document.getElementById('root')

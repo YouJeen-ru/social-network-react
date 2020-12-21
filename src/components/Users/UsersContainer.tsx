@@ -60,6 +60,6 @@ export default compose(connect(mapStateToProps, {
     toggleIsFollowingProgress,
     getUsers,
 }),
-    withAuthRedirect
+    //withAuthRedirect
 )(UsersContainer)
 
